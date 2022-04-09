@@ -1,17 +1,24 @@
 {
     "name": "nsfwjs-api",
     "version": "1.0.0",
-    "description": "",
+    "description": "基于 [nsfwjs](https://github.com/infinitered/nsfwjs)，可以用来检测图片是否包含色情内容。",
     "main": "index.js",
     "scripts": {
         "start": "node index.js"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/qiaoshouzi/nsfwjs-api.git"
+    },
     "keywords": [],
-    "author": "https://github.com/qiaoshouzi",
+    "author": "qiaoshouzi",
     "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/qiaoshouzi/nsfwjs-api/issues"
+    },
+    "homepage": "https://github.com/qiaoshouzi/nsfwjs-api#readme",
     "dependencies": {
         "@tensorflow/tfjs-node": "^3.15.0",
-        "express": "^4.17.3",
         "nsfwjs": "^2.4.1"
     }
 }
