@@ -5,8 +5,8 @@ def main():
         image = r.read()
     r.close()
     req = requests.post('http://127.0.0.1:3000/nsfw', image).json()
-    if req['code'] != 0:
-        print('Error: ', req['msg'])
+    if req['code'] != 200:
+        print('Error:', req['msg'])
     else:
         reqData = req['data']
         for i in reqData:

@@ -24,7 +24,7 @@ app.post('/nsfw', (req, res) => {
         });
         req.on("end", () => {
             try {
-                let buffer = Buffer.concat(data);
+                const buffer = Buffer.concat(data);
                 // 保存图片
                 // fs.writeFile("./image.jpg", buffer, (err) => {
                 //     if (!err) {
@@ -39,7 +39,7 @@ app.post('/nsfw', (req, res) => {
                             data[i['className']] = Math.trunc(i['probability'] * 10000) / 100;
                         };
                         res.end(JSON.stringify({
-                            'code': 0,
+                            'code': 200,
                             'msg': '',
                             'data': data
                         }));
@@ -60,6 +60,10 @@ app.post('/nsfw', (req, res) => {
             'data': ''
         }));
     };
+});
+
+app.use((req, res) => {
+    res.end('https://github.com/qiaoshouzi/nsfwjs-api');
 });
 
 app.listen(port, () => {
