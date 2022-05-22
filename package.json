@@ -18,7 +18,7 @@
     },
     "homepage": "https://github.com/qiaoshouzi/nsfwjs-api#readme",
     "dependencies": {
-        "@tensorflow/tfjs-node": "^3.15.0",
+        "@tensorflow/tfjs-node": "^3.18.0",
         "express": "^4.17.3",
         "nsfwjs": "^2.4.1"
     }
