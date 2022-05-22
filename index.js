@@ -8,14 +8,6 @@ const app = express();
 const port = 3000;
 const nsfwLoad = nsfw.load();
 
-function catchE(res, e) {
-    res.end(JSON.stringify({
-        'code': -1,
-        'msg': e.message,
-        'data': {}
-    }));
-};
-
 app.post('/nsfw', (req, res) => {
     try {
         let data = [];
@@ -23,7 +15,11 @@ app.post('/nsfw', (req, res) => {
             try {
                 data.push(chunk);
             } catch (e) {
-                catchE(res, e);
+                res.end(JSON.stringify({
+                    'code': 500,
+                    'msg': e.message,
+                    'data': ''
+                }));
             };
         });
         req.on("end", () => {
@@ -50,11 +46,19 @@ app.post('/nsfw', (req, res) => {
                     });
                 });
             } catch (e) {
-                catchE(res, e);
+                res.end(JSON.stringify({
+                    'code': 500,
+                    'msg': e.message,
+                    'data': ''
+                }));
             };
         });
     } catch (e) {
-        catchE(res, e);
+        res.end(JSON.stringify({
+            'code': 500,
+            'msg': e.message,
+            'data': ''
+        }));
     };
 });
 
